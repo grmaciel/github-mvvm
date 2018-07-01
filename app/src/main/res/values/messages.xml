@@ -1,0 +1,5 @@
+<resources>
+    <string name="message_error_rate_limit">Hey guys, i\'m sorry but we have reached our Github public rate limit. We need to wait a bit so we can get data again.</string>
+
+    <string name="message_error">Unfortunaly an unpexcted error happened, could you check your internet connection?</string>
+</resources>
