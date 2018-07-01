@@ -7,16 +7,16 @@ import com.gilson.githubviewer.R
 import com.gilson.githubviewer.domain.repository.Repository
 import com.gilson.githubviewer.ui.image.ImageLoader
 
-class GithubRepositoryAdapter(private var data: MutableList<Repository>,
-                              private val imageLoader: ImageLoader) : RecyclerView.Adapter<GithubViewHolder>() {
+class RepositoryAdapter(private var data: MutableList<Repository>,
+                        private val imageLoader: ImageLoader) : RecyclerView.Adapter<RepositoryViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-            GithubViewHolder(LayoutInflater
+            RepositoryViewHolder(LayoutInflater
                     .from(parent.context)
                     .inflate(R.layout.adapter_repository_item, parent, false))
 
     override fun getItemCount(): Int = data.size
 
-    override fun onBindViewHolder(holder: GithubViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: RepositoryViewHolder, position: Int) {
         holder.render(data[position], imageLoader)
     }
 

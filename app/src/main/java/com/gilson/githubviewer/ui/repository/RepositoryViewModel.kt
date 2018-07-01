@@ -10,7 +10,7 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import javax.inject.Inject
 
-class GithubViewModel @Inject constructor(private val useCase: RepositoryUseCase) : ViewModel() {
+class RepositoryViewModel @Inject constructor(private val useCase: RepositoryUseCase) : ViewModel() {
     private val githubLiveData: MutableLiveData<RepositoryEvent> = MutableLiveData()
     private val compositeDisposable = CompositeDisposable()
 

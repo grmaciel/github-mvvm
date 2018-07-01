@@ -6,7 +6,7 @@ import com.gilson.githubviewer.domain.repository.Repository
 import com.gilson.githubviewer.ui.image.ImageLoader
 import kotlinx.android.synthetic.main.adapter_repository_item.view.*
 
-class GithubViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+class RepositoryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     fun render(input: Repository, imageLoader: ImageLoader) {
         itemView.txtRepositoryName.text = input.name
         itemView.txtRepositoryDescription.text = input.description

@@ -20,8 +20,6 @@ class RepositoryRemoteDataStore(private val rest: RepositoryRest) : RepositoryDa
     private fun queryForkCount(repository: Repository): Observable<Repository> {
         return rest.repositoryById(repository.id)
                 .map { it.forkCount }
-                .first(0)
                 .map { Repository(repository.id, repository.name, repository.description, it, repository.avatarUrl) }
-                .toObservable()
     }
 }

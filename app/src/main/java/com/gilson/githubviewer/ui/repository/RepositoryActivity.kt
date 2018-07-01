@@ -15,23 +15,23 @@ import com.gilson.githubviewer.domain.repository.RepositoryEvent
 import com.gilson.githubviewer.domain.repository.RepositoryState
 import com.gilson.githubviewer.ui.RecyclerDecoratorSpace
 import com.gilson.githubviewer.ui.image.ImageLoader
-import com.gilson.githubviewer.ui.repository.adapter.GithubRepositoryAdapter
-import kotlinx.android.synthetic.main.activity_main.*
+import com.gilson.githubviewer.ui.repository.adapter.RepositoryAdapter
+import kotlinx.android.synthetic.main.activity_repository.*
 import retrofit2.HttpException
 import javax.inject.Inject
 
-class GithubRepositoryActivity : AppCompatActivity() {
+class RepositoryActivity : AppCompatActivity() {
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
     @Inject
     lateinit var imageLoader: ImageLoader
-    lateinit var viewModel: GithubViewModel
+    lateinit var viewModel: RepositoryViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_repository)
         inject()
-        viewModel = viewModelFactory.create(GithubViewModel::class.java)
+        viewModel = viewModelFactory.create(RepositoryViewModel::class.java)
         setupAdapter()
         observeDataUpdates()
         setupReload()
@@ -48,7 +48,7 @@ class GithubRepositoryActivity : AppCompatActivity() {
     private fun setupAdapter() {
         listRepositories.layoutManager = LinearLayoutManager(this)
         listRepositories.addItemDecoration(RecyclerDecoratorSpace())
-        listRepositories.adapter = GithubRepositoryAdapter(mutableListOf(), imageLoader)
+        listRepositories.adapter = RepositoryAdapter(mutableListOf(), imageLoader)
     }
 
     private fun setupReload() {
@@ -95,5 +95,5 @@ class GithubRepositoryActivity : AppCompatActivity() {
         Toast.makeText(this, messageId, Toast.LENGTH_SHORT).show()
     }
 
-    private fun adapter() = (listRepositories.adapter as GithubRepositoryAdapter)
+    private fun adapter() = (listRepositories.adapter as RepositoryAdapter)
 }
